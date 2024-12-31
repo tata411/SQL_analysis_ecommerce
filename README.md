@@ -20,11 +20,33 @@ This is real commercial data, it has been anonymised, and references to the comp
 * Number of orders by Pricing & sized by revenue generated
 
 ### Data schema
-![Dataset is divided into several tables](https://github.com/tata411/SQLanalysis_ecommerce/blob/ad0506f5d18d5f269d0000ba7f6c279421781672/HRhd2Y0.png)
-
-### Data preparation& cleaning
 Let's look at our data
 ![schema](https://github.com/tata411/SQLanalysis_ecommerce/blob/ce9597c084c55562d28ca718b7473329de241cc7/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png)
 
+### Data preparation& cleaning
 
+```
+--Check duplicates and null values:
+SELECT 
+order_id,
+COUNT(*) as count_id
+ FROM `orders` 
+GROUP BY order_id
+HAVING count_id >1
+ LIMIT 1000;
+
+SELECT *
+ FROM `orders` 
+ WHERE order_id IS NULL OR
+    customer_id IS NULL OR
+    order_status is NULL;
+```
+
+```
+--Check status of orders
+SELECT DISTINCT(order_status)
+FROM`orders` ;
+
+```
+![pic2](https://github.com/tata411/SQLanalysis_ecommerce/blob/c7198ae10f021fa18910387339a2fefcdf05c5a8/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202024-12-31%20%D0%B2%2008.41.21.png)
 
