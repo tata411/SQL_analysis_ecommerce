@@ -46,7 +46,26 @@ SELECT *
 --Check status of orders
 SELECT DISTINCT(order_status)
 FROM`orders` ;
-
 ```
 ![pic2](https://github.com/tata411/SQLanalysis_ecommerce/blob/c7198ae10f021fa18910387339a2fefcdf05c5a8/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202024-12-31%20%D0%B2%2008.41.21.png)
 
+```
+SELECT MIN(order_purchase_timestamp) as min_date,
+MAX (order_purchase_timestamp) max_date
+FROM orders]; 
+
+```
+![pic3](https://github.com/tata411/SQLanalysis_ecommerce/blob/ffa70385cb3656dc8cb66f5b1e437a6a400ee48a/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202024-12-31%20%D0%B2%2009.00.46.png)
+
+```
+SELECT
+DISTINCT LENGTH(order_id) as length_order_id
+FROM orders; 
+--32 symbols in order_id 
+
+SELECT
+DISTINCT LENGTH(customer_id) as l
+FROM orders 
+--32 symbols in customer_id 
+
+```
